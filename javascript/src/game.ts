@@ -19,8 +19,8 @@ export class Game {
     }
   }
 
-  add(playerName) {
-    this.players.push(new Player(playerName));
+  addPlayer(player: Player) {
+    this.players.push(player);
     console.log(`They are player number ${this.players.length}`);
   }
 
@@ -114,13 +114,14 @@ export class Game {
     return true;
   }
 
-  private correctAnswer() {
+  private correctAnswer(): boolean {
     console.log("Answer was correct!!!!");
+    this.getCurrentPlayer().increaseAGoldCoin();
+    const didCurrentPlayerWin = this.didCurrentPlayerWin();
+
     this.currentPlayer += 1;
     if (this.currentPlayer == this.players.length) this.currentPlayer = 0;
-
-    this.getCurrentPlayer().increaseAGoldCoin();
-    return this.didCurrentPlayerWin();
+    return didCurrentPlayerWin
   }
 
   private didCurrentPlayerWin() {
