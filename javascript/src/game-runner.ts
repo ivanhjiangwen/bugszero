@@ -1,4 +1,5 @@
 import { Game } from "./game";
+import { Player } from "./player";
 
 export function gameRunner(randomInt) {
   // a simulator of a game
@@ -7,9 +8,9 @@ export function gameRunner(randomInt) {
 
   const game = new Game();
 
-  game.add("Chet");
-  game.add("Pat");
-  game.add("Sue");
+  game.addPlayer(new Player("Chet"));
+  game.addPlayer(new Player("Pat"));
+  game.addPlayer(new Player("Sue"));
 
   do {
     game.roll(randomInt(6));

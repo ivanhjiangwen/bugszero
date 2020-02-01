@@ -19,8 +19,8 @@ export class Game {
     }
   }
 
-  add(playerName) {
-    this.players.push(new Player(playerName));
+  addPlayer(player: Player) {
+    this.players.push(player);
     console.log(`They are player number ${this.players.length}`);
   }
 
